@@ -1,0 +1,78 @@
+﻿@model IEnumerable<InversionesII.Models.Inversion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="content-wrapper">
+        <section class="content">
+            <h1>Inversiones</h1>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <a asp-action="Create">Create New</a>
+
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Monto)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Plazo)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TasaInteres)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FechaIngreso)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Monto)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Plazo)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TasaInteres)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FechaIngreso)
+                                            </td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+    </div>
